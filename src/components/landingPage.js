@@ -9,7 +9,7 @@ function Landing() {
 
     const { galleryImages, setGalleryImages } = useState(["../resources/Fender.jpg", "../resources/Bastille.jpg", "../resources/M83.jpg"]);
     
-
+    /*
     function yourFunction() {
         alert("hit");
         setTimeout(yourFunction, 5000);
@@ -20,7 +20,7 @@ function Landing() {
         yourFunction();
     }, [])
 
-
+*/
     return (
         <div id="Landing">
             <div id="content">
