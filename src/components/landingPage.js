@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./css/landingPage.css";
+import UserContext from "../context/UserContext";
 
 function Landing() {
+    const { setUserData } = useContext(UserContext);
 
-    const artistArray = ["../resources/Fender.jpg", "../resources/Bastille.jpg", "../resources/M83.jpg", "../resources/Billie.jpg", "../resources/WalkTheMoon.jpg"];
-    const names = ["imageOne", "imageTwo", "imageThree"];
-    var arrayPointer = 0;
+   
 
-    const { galleryImages, setGalleryImages } = useState(["../resources/Fender.jpg", "../resources/Bastille.jpg", "../resources/M83.jpg"]);
-    
-    /*
-    function yourFunction() {
-        alert("hit");
-        setTimeout(yourFunction, 5000);
+    const Authorize = () => {
+        const client_id = ""; //Your secret
+        const redirect_uri = "http://localhost:3000";
+        const scope = "user-read-private user-read-email";
+
+        const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${encodeURIComponent(client_id)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+        window.location = url;
+
+        //Do I need this?????
+        //localStorage.setItem("auth-token", loginRes.data.token);
     }
 
-
-    useEffect(() => {
-        yourFunction();
-    }, [])
-
-*/
     return (
         <div id="Landing">
             <div id="content">
@@ -45,7 +43,7 @@ function Landing() {
 
                 <div id="loginPanel">
                     <p>Please log in to continue</p>
-                    <button>LOG IN</button>
+                    <button onClick={Authorize}>LOG IN</button>
 
                 </div>
             </div>
