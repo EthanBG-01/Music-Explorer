@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserContext from "./context/UserContext";
 import './App.css';
 import Landing from './components/landingPage';
@@ -10,11 +10,6 @@ function App() {
     const [userData, setUserData] = useState({
         token: undefined
     });
-
-    const [option, setOption] = useState({
-        page : null,
-    })
-
 
     //Get the hashes in the URL:
     const hash = window.location.hash.substring(1).split("&").reduce(function (initial, item) {
@@ -34,7 +29,7 @@ function App() {
                 token
             });
         }
-    });
+    }, []);
 
     return (
         <UserContext.Provider value={{ userData, setUserData }} >

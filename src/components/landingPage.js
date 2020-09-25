@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import "./css/landingPage.css";
 import UserContext from "../context/UserContext";
 
@@ -8,15 +8,14 @@ function Landing() {
    
 
     const Authorize = () => {
-        const client_id = ""; //Your secret
+        const client_id = ""; //Your client secret
         const redirect_uri = "http://localhost:3000";
-        const scope = "user-read-private user-read-email";
+        const scope = "user-read-private user-read-email user-top-read";
 
         const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${encodeURIComponent(client_id)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
         window.location = url;
 
-        //Do I need this?????
-        //localStorage.setItem("auth-token", loginRes.data.token);
+        
     }
 
     return (
