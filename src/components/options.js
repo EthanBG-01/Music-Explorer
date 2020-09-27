@@ -2,14 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import UserContext from "../context/UserContext";
 import Axios from "axios";
 import "./css/options.css";
+import Fade from 'react-reveal/Fade';
 
-function Options() {
+
+function Options(props) {
     const { userData, setUserData } = useContext(UserContext);
-
-    const [option, setOption] = useState({
-        page: null,
-    })
-
+    
     const [topArtists, setTopArtists] = useState([]);
 
     const getTopArtists = async () => {
@@ -36,8 +34,14 @@ function Options() {
             })
 
     }
+    
+    const setSearch = () => {
+        props.setOption("search");
+    }
 
-
+    const setView = () => {
+        props.setOption("view");
+    }
 
     useEffect(() => {
         getTopArtists();
@@ -45,29 +49,45 @@ function Options() {
 
 
     return (
+        
         <div id="Options">
+            <Fade duration={3000} down>
 
-            <div className="title">
+            
+                <div className="title">
 
-                <h2>Welcome To</h2>
-                <h1>Music Explorer</h1>
-                <p>Welcome, Select an option below to get started!</p>
-            </div>
-
+                    <h2>Welcome To</h2>
+                    <h1>Music Explorer</h1>
+                    <p>Welcome, Select an option below to get started!</p>
+                </div>
+            
             <div id="optionHolder">
-                <div id="view">
-                    <div id="artistGallery">
+                    <div id="view">
                         
+                    <div id="artistGallery">
+                        {topArtists ?
+                            topArtists.map((item, i) =>
+                                <img className="icon" src={item} />
+                            )
+                            : <p> loading </p>
+                            }
                     </div>
-                    <button className="spotify-theme-button">VIEW YOUR ARTISTS</button>
+                        <button onClick={setView} className="spotify-theme-button">VIEW YOUR ARTISTS</button>
                 </div>
                 <div id="search">
                     <div id="artistGallery">
-
+                        {topArtists ?
+                            topArtists.map((item, i) =>
+                                <img className="icon" src={item} />
+                            )
+                            : <p> loading </p>
+                            }
+                          
                     </div>
-                    <button className="spotify-theme-button">SEARCH ARTISTS</button>
+                        <button onClick={setSearch} className="spotify-theme-button">SEARCH ARTISTS</button>
                 </div>
             </div>
+                </Fade>
 
         </div>
     );

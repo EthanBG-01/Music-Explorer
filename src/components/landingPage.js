@@ -8,7 +8,7 @@ function Landing() {
    
 
     const Authorize = () => {
-        const client_id = ""; //Your client secret
+        const client_id = ""; //Your clientID
         const redirect_uri = "http://localhost:3000";
         const scope = "user-read-private user-read-email user-top-read";
 

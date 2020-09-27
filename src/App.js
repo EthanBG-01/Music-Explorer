@@ -3,6 +3,7 @@ import UserContext from "./context/UserContext";
 import './App.css';
 import Landing from './components/landingPage';
 import Options from './components/options';
+import Search from './components/search';
 
 
 function App() {
@@ -10,6 +11,12 @@ function App() {
     const [userData, setUserData] = useState({
         token: undefined
     });
+
+    const [userOption, setUserOption] = useState();
+
+    const setOptionMenu = (option) => {
+        setUserOption(option);
+    }
 
     //Get the hashes in the URL:
     const hash = window.location.hash.substring(1).split("&").reduce(function (initial, item) {
@@ -29,6 +36,8 @@ function App() {
                 token
             });
         }
+
+        
     }, []);
 
     return (
@@ -37,7 +46,11 @@ function App() {
 
                 {
                     userData.token ?
-                        <Options />
+
+                        userOption ? 
+                            (userOption == "view") ? <p>View</p> : <Search />
+                            
+                            : <Options setOption={setOptionMenu} />
                         : 
                         <Landing />
                 } 
