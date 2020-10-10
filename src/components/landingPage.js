@@ -8,9 +8,9 @@ function Landing() {
    
 
     const Authorize = () => {
-        const client_id = ""; //Your clientID
+        const client_id = "";
         const redirect_uri = "http://localhost:3000";
-        const scope = "user-read-private user-read-email user-top-read";
+        const scope = "user-read-private user-read-email user-top-read playlist-read-private";
 
         const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${encodeURIComponent(client_id)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
         window.location = url;

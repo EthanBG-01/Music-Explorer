@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/* CONVERT INTO CLASSES WHERE POSSIBLE*/
+
+#PlaylistBrowser {
+    font-family: "Montserrat", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    overflow:scroll;
+    background: rgb(46,46,46);
+    background: linear-gradient(180deg, rgba(46,46,46,1) 0%, rgba(25,25,25,1) 59%);
+}
+
+.playListTile img {
+    width:20vw;
+    height:20vw;
+    object-fit:cover;
+}
+
+#playlistContainer{
+    display:flex;
+    flex-wrap:wrap;
+}

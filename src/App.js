@@ -4,7 +4,8 @@ import './App.css';
 import Landing from './components/landingPage';
 import Options from './components/options';
 import Search from './components/search';
-
+import Playlist from './components/playListBrowser';
+import View from './components/view';
 
 function App() {
 
@@ -48,7 +49,7 @@ function App() {
                     userData.token ?
 
                         userOption ? 
-                            (userOption == "view") ? <p>View</p> : <Search />
+                            (userOption == "view") ? <View /> : <Playlist />
                             
                             : <Options setOption={setOptionMenu} />
                         : 
